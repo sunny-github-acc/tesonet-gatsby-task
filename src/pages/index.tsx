@@ -3,6 +3,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import Helmet from "../components/Helmet";
 import { ThemeProvider } from "styled-components";
 import MainInfo from "../components/MainInfo";
+import SideInfo from "../components/SideInfo";
 
 const IndexPage = () => {
   return (
@@ -10,7 +11,8 @@ const IndexPage = () => {
       <GlobalStyle />
       <Helmet />
       <ThemeProvider theme={theme}>
-        <MainInfo />
+        {/* <MainInfo /> */}
+        <SideInfo />
       </ThemeProvider>
     </Fragment>
   );
