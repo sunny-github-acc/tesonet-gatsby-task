@@ -11,23 +11,17 @@ const IndexPage = () => {
       <GlobalStyle />
       <Helmet />
       <ThemeProvider theme={theme}>
-        {/* <MainInfo /> */}
-        <SideInfo />
+        <Title>weather</Title>
+        <Container>
+          <MainInfo />
+          <SideInfo />
+        </Container>
       </ThemeProvider>
     </Fragment>
   );
 };
 
 export default IndexPage;
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    font-family:Nunito, Arial, sans-serif
-  } 
-  
-  @media (max-width: 376px) {}
-`;
 
 const theme = {
   colors: {
@@ -53,3 +47,49 @@ const theme = {
   },
   borderRadius: "13px",
 };
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    font-family: Nunito, Arial, sans-serif;
+    background: #D8DCE2;  
+    max-width: 1679px; 
+    display: flex;  
+    flex-direction: column; 
+    align-content: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0; 
+    
+    @media (max-width: 376px) {
+      display: block;
+    }
+  }  
+`;
+
+const Title = styled.div`
+  background: ${({ theme: { colors } }) => colors.white};
+  color: ${({ theme: { colors } }) => colors.primary};
+  font-weight: bold;
+  font-size: 35px;
+  padding: 27px 40px;
+
+  @media (max-width: 376px) {
+    padding: 0 24px;
+    padding-top: 27px;
+    background: ${({ theme: { colors } }) => colors.primary};
+    color: ${({ theme: { colors } }) => colors.white};
+    margin-bottom: -1px;
+  }
+`;
+
+const Container = styled.main`
+  display: flex;
+  padding: 27px 40px;
+  background: ${({ theme: { colors } }) => colors.bgMain};
+  overflow-x: scroll;
+
+  @media (max-width: 376px) {
+    display: unset;
+    padding: 0;
+  }
+`;

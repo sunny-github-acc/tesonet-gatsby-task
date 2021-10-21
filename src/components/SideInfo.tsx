@@ -10,6 +10,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react";
 import styled from "styled-components";
+import SideInfoDesktop from "./SideInfoDesktop";
 
 export default function SideInfo() {
   const [open, setOpen] = React.useState(true);
@@ -19,128 +20,139 @@ export default function SideInfo() {
   };
 
   return (
-    <Container>
-      <List
-        sx={{
-          width: "100vw",
-          bgcolor: "background.paper",
-        }}
-        component="nav"
-        aria-labelledby="nested-list-subheader"
-        disablePadding={true}
-      >
-        <ListItemContainer>
-          <Time>18:00</Time>
-          <ListItemIcon>
-            <StaticImage
-              src="../images/scattered-clouds.png"
-              width={38}
-              objectFit="contain"
-              alt="scattered clouds"
-            />
-          </ListItemIcon>
-          <Temperature>3°</Temperature>
-          <Wind>
-            <WindImage>
+    <>
+      <Mobile>
+        <List
+          sx={{
+            width: "100%",
+            bgcolor: "background.paper",
+          }}
+          component="nav"
+          aria-labelledby="nested-list-subheader"
+          disablePadding={true}
+        >
+          <ListItemContainer>
+            <Time>18:00</Time>
+            <ListItemIcon>
               <StaticImage
-                src="../images/wind-direction.png"
-                height={16.2}
+                src="../images/scattered-clouds.png"
+                width={38}
                 objectFit="contain"
                 alt="scattered clouds"
               />
-            </WindImage>
-            <WindSpeed>8ms</WindSpeed>
-          </Wind>
-        </ListItemContainer>
+            </ListItemIcon>
+            <Temperature>3°</Temperature>
+            <Wind>
+              <WindImage>
+                <StaticImage
+                  src="../images/wind-direction.png"
+                  height={16.2}
+                  objectFit="contain"
+                  alt="scattered clouds"
+                />
+              </WindImage>
+              <WindSpeed>8ms</WindSpeed>
+            </Wind>
+          </ListItemContainer>
 
-        <ListItemContainer>
-          <Time>18:00</Time>
-          <ListItemIcon>
-            <StaticImage
-              src="../images/scattered-clouds.png"
-              width={38}
-              objectFit="contain"
-              alt="scattered clouds"
-            />
-          </ListItemIcon>
-          <Temperature>3°</Temperature>
-          <Wind>
-            <WindImage>
+          <ListItemContainer>
+            <Time>18:00</Time>
+            <ListItemIcon>
               <StaticImage
-                src="../images/wind-direction.png"
-                height={16.2}
+                src="../images/scattered-clouds.png"
+                width={38}
                 objectFit="contain"
                 alt="scattered clouds"
               />
-            </WindImage>
-            <WindSpeed>8ms</WindSpeed>
-          </Wind>
-        </ListItemContainer>
-
-        <WeekdayButton onClick={handleClick}>
-          <Weekday>Tuesday</Weekday>
-          {open ? <ExpandLess /> : <ExpandMore />}
-        </WeekdayButton>
-
-        <Collapse in={open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            <ListItemContainer>
-              <Time>18:00</Time>
-              <ListItemIcon>
+            </ListItemIcon>
+            <Temperature>3°</Temperature>
+            <Wind>
+              <WindImage>
                 <StaticImage
-                  src="../images/scattered-clouds.png"
-                  width={38}
+                  src="../images/wind-direction.png"
+                  height={16.2}
                   objectFit="contain"
                   alt="scattered clouds"
                 />
-              </ListItemIcon>
-              <Temperature>3°</Temperature>
-              <Wind>
-                <WindImage>
-                  <StaticImage
-                    src="../images/wind-direction.png"
-                    height={16.2}
-                    objectFit="contain"
-                    alt="scattered clouds"
-                  />
-                </WindImage>
-                <WindSpeed>8ms</WindSpeed>
-              </Wind>
-            </ListItemContainer>
+              </WindImage>
+              <WindSpeed>8ms</WindSpeed>
+            </Wind>
+          </ListItemContainer>
 
-            <ListItemContainer>
-              <Time>18:00</Time>
-              <ListItemIcon>
-                <StaticImage
-                  src="../images/scattered-clouds.png"
-                  width={38}
-                  objectFit="contain"
-                  alt="scattered clouds"
-                />
-              </ListItemIcon>
-              <Temperature>3°</Temperature>
-              <Wind>
-                <WindImage>
+          <WeekdayButton onClick={handleClick}>
+            <Weekday>Tuesday</Weekday>
+            {open ? <ExpandLess /> : <ExpandMore />}
+          </WeekdayButton>
+
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItemContainer>
+                <Time>18:00</Time>
+                <ListItemIcon>
                   <StaticImage
-                    src="../images/wind-direction.png"
-                    height={16.2}
+                    src="../images/scattered-clouds.png"
+                    width={38}
                     objectFit="contain"
                     alt="scattered clouds"
                   />
-                </WindImage>
-                <WindSpeed>8ms</WindSpeed>
-              </Wind>
-            </ListItemContainer>
-          </List>
-        </Collapse>
-      </List>
-    </Container>
+                </ListItemIcon>
+                <Temperature>3°</Temperature>
+                <Wind>
+                  <WindImage>
+                    <StaticImage
+                      src="../images/wind-direction.png"
+                      height={16.2}
+                      objectFit="contain"
+                      alt="scattered clouds"
+                    />
+                  </WindImage>
+                  <WindSpeed>8ms</WindSpeed>
+                </Wind>
+              </ListItemContainer>
+
+              <ListItemContainer>
+                <Time>18:00</Time>
+                <ListItemIcon>
+                  <StaticImage
+                    src="../images/scattered-clouds.png"
+                    width={38}
+                    objectFit="contain"
+                    alt="scattered clouds"
+                  />
+                </ListItemIcon>
+                <Temperature>3°</Temperature>
+                <Wind>
+                  <WindImage>
+                    <StaticImage
+                      src="../images/wind-direction.png"
+                      height={16.2}
+                      objectFit="contain"
+                      alt="scattered clouds"
+                    />
+                  </WindImage>
+                  <WindSpeed>8ms</WindSpeed>
+                </Wind>
+              </ListItemContainer>
+            </List>
+          </Collapse>
+        </List>
+      </Mobile>
+
+      <Desktop>
+        <SideInfoDesktop />
+      </Desktop>
+    </>
   );
 }
 
-const Container = styled.main`
+const Mobile = styled.main`
   background-color: ${({ theme: { colors } }) => colors.white};
   font-weight: bold;
+  display: none;
+
+  @media (max-width: 376px) {
+    display: block;
+  }
 `;
 
 const ListItemContainer = styled.div`
@@ -187,4 +199,15 @@ const WeekdayButton = styled(ListItemButton)`
 const Weekday = styled.div`
   font-size: 18px;
   color: ${({ theme: { colors } }) => colors.darkGrey};
+`;
+
+const Desktop = styled.main`
+  background-color: ${({ theme: { colors } }) => colors.white};
+  font-weight: bold;
+  display: block;
+  margin: 0 30px;
+
+  @media (max-width: 376px) {
+    display: none;
+  }
 `;

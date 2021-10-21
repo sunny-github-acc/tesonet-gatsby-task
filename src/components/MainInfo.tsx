@@ -6,8 +6,6 @@ import styled from "styled-components";
 const MainInfo = () => {
   return (
     <Container>
-      <Title>weather</Title>
-
       <SearchContainer>
         <Search placeholder="Vilnius" />
         <SearchIconContainer>
@@ -19,6 +17,7 @@ const MainInfo = () => {
         <StaticImage
           src="../images/clear-mono.png"
           height={85.26}
+          width={85.26}
           objectFit="contain"
           alt="clear"
         />
@@ -118,13 +117,13 @@ const Container = styled.main`
   background-color: ${({ theme: { colors } }) => colors.primary};
   padding: 0 24px;
   color: ${({ theme: { colors } }) => colors.white};
-`;
+  border-radius: ${({ theme: { borderRadius } }) => borderRadius};
+  min-width: 374px;
 
-const Title = styled.div`
-  padding-top: 27px;
-  font-weight: bold;
-  font-size: 35px;
-  font-family: ${({ theme: { fonts } }) => fonts.nunito};
+  @media (max-width: 376px) {
+    border-radius: 0;
+    min-width: unset;
+  }
 `;
 
 const SearchContainer = styled.div`
@@ -181,10 +180,15 @@ const WeatherCondition = styled.div`
 const WeatherExtra = styled.div`
   padding: 37px 0;
   display: flex;
+  flex-direction: column;
+
+  @media (max-width: 376px) {
+    flex-direction: row;
+  }
 `;
 
 const WeatherExtraColumn = styled.div`
-  margin-right: 30px;
+  margin-right: 5px;
 `;
 
 const WeatherExtraItem = styled.div`
