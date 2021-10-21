@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/sunny-github-acc/tesonet-gatsby-task",
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
     title: "tesonet-gatsby-task",
